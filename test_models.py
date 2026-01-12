@@ -14,8 +14,8 @@ from torch.optim import lr_scheduler
 import time
 
 
-n_networks = 2
-n_nodes = [100]
+n_networks = 10
+n_nodes = [25,50,100]
 n_noises = 6
 
 time_GWEMBED = {}
@@ -127,16 +127,16 @@ for nn in range(n_networks):
                     plt.close('all')
 
 
-# # Save results
-# import os
+# Save results
+import os
 
-# res_folder = os.path.join(os.getcwd(), "stats_data")
-# os.makedirs(res_folder, exist_ok=True)
+res_folder = os.path.join(os.getcwd(), "stats_data")
+os.makedirs(res_folder, exist_ok=True)
 
-# result_filename = '{}/matching_results_syn.pickle'.format(res_folder)
+result_filename = '{}/matching_results_syn.pickle'.format(res_folder)
 
-# with open(result_filename, 'wb') as f:  # Python 3: open(..., 'wb')
-#     pickle.dump({'time_GWEMBED': time_GWEMBED,
-#                  'time_BAPG': time_BAPG,
-#                  'node_accuracy_GWEMBED': node_accuracy_GWEMBED,
-#                  'node_accuracy_BAPG': node_accuracy_BAPG}, f)
+with open(result_filename, 'wb') as f:  # Python 3: open(..., 'wb')
+    pickle.dump({'time_GWEMBED': time_GWEMBED,
+                 'time_BAPG': time_BAPG,
+                 'node_accuracy_GWEMBED': node_accuracy_GWEMBED,
+                 'node_accuracy_BAPG': node_accuracy_BAPG}, f)

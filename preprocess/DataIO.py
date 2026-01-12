@@ -31,7 +31,12 @@ def build_dict_syn(num_node: int, noise: float):
     for i in range(num_node):
         src_index[float(i)] = i
 
-    num_node_noise = int((1+noise) * num_node)
+    # flag for more node or same nodes
+    flag_more_node = False
+    if flag_more_node:
+        num_node_noise = int((1+noise) * num_node)
+    else:
+        num_node_noise = num_node
     for i in range(num_node_noise):
         tar_index[float(i)] = i
 
